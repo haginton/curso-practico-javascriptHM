@@ -83,3 +83,109 @@ function areaCirculo(radio){
 
 console.groupEnd();
 
+// Aqui interactuamos con el HTML
+
+/*
+Estando desde el navegador en consola ejecutar: document.getElementById("InputCuadrado");
+con eso obtendremos el tag html completo del elemento identificado por su nombre:
+<input id="InputCuadrado" type="number">
+*/
+
+//Codigo Cuadrado
+
+function calcularPerimetroCuadrado(){
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+
+    const perimetro = perimetroCuadrado(value);
+    alert(perimetro);
+}
+
+function calcularAreaCuadrado(){
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+
+    const area = areaCuadrado(value);
+    alert(area);
+}
+
+//Codigo Triangulo
+
+function calcularPerimetroTriangulo(){
+    const inputL1T = document.getElementById("InputL1Triangulo");
+    const valueL1T = inputL1T.value;
+    var lado1T = Number(valueL1T);
+    const inputL2T = document.getElementById("InputL2Triangulo");
+    const valueL2T = inputL2T.value;
+    var lado2T = Number(valueL2T);
+    const inputBT = document.getElementById("InputBaseTriangulo");
+    const valueBT = inputBT.value;
+    var baseT = Number(valueBT);
+
+    const perimetroT = perimetroTriangulo(lado1T, lado2T, baseT);
+    alert(perimetroT);
+}
+
+function calcularAreaTriangulo(){
+    const inputBT = document.getElementById("InputBaseTriangulo");
+    const valueBT = inputBT.value;
+    var baseT = Number(valueBT);
+    const inputAT = document.getElementById("InputAlturaTriangulo");
+    const valueAT = inputAT.value;
+    var alturaT = Number(valueAT);
+
+    const areaT = areaTriangulo(baseT, alturaT);
+    alert(areaT);
+}
+
+//Codigo Circulo
+
+function calcularPerimetroCirculo(){
+    const inputRadio = document.getElementById("InputRadioCirculo");
+    const valueRadio = inputRadio.value;
+    var radio = Number(valueRadio);
+
+    const perimetroC = perimetroCirculo(radio);
+    alert(perimetroC);
+}
+
+function calcularAreaCirculo(){
+    const inputRadio = document.getElementById("InputRadioCirculo");
+    const valueRadio = inputRadio.value;
+    var radio = Number(valueRadio);
+
+    const areaC = areaCirculo(radio);
+    alert(areaC);
+}
+
+// Triangulo isósceles
+
+function AlturaTrianguloIsosceles(lado1, lado2, base){
+    if (lado1 != lado2) {
+        alert("No es un triangulo Isósceles ya que los lados no tienen la misma medida");
+    }else{
+        var altura = Math.sqrt(Math.pow(lado1, 2) - ((Math.pow(base, 2))/4));
+        return altura;
+    }
+}
+
+//Función asociada al boton (En pantalla se solicita el valor de lado1, lado2 y base del triangulo)
+
+function calculaAlturaTriangulo(){
+    const inputLado1 = document.getElementById("InputLado1TrianguloI");
+    const valueLado1 = inputLado1.value;
+    var lado1 = Number(valueLado1);
+    const inputLado2 = document.getElementById("InputLado2TrianguloI");
+    const valueLado2 = inputLado2.value;
+    var lado2 = Number(valueLado2);
+    const inputBase = document.getElementById("InputBaseTrianguloI");
+    const valueBase = inputBase.value;
+    var base = Number(valueBase);
+
+    const alturaTriangulo = AlturaTrianguloIsosceles(lado1, lado2, base);
+    if (alturaTriangulo == undefined) {
+        alert("No se realiza el calculo de altura del triangulo isósceles");
+    }else{
+        alert(alturaTriangulo);
+    }
+}
