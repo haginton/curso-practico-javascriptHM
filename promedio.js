@@ -14,7 +14,7 @@ function calcularMediaAritmetica(lista) { // se calcula el promedio por medio de
         sumaLista = sumaLista + lista[i];
     }*/
 
-    const sumaLista = lista.reduce( // metodo reduce() perteneciente a los array
+    const sumaLista = lista.reduce( // metodo reduce() perteneciente a los array que permite ir operando cada elemento
         function (valorAcumulado = 0, nuevoElemento){
             return valorAcumulado + nuevoElemento;
         }
